@@ -4445,3 +4445,319 @@ TypeError: string indices must be integers
 2023-04-12 14:14:05,737 -  nornir.core -     INFO -        run() - Running task 'show_command' with args {} on 4 hosts
 2023-04-12 14:15:28,173 -  nornir.core -     INFO -        run() - Running task 'show_command' with args {} on 4 hosts
 2023-04-12 14:18:14,015 -  nornir.core -     INFO -        run() - Running task 'show_command' with args {} on 4 hosts
+2023-04-12 14:23:01,113 -  nornir.core -     INFO -        run() - Running task 'show_command' with args {} on 4 hosts
+2023-04-12 14:24:38,292 -  nornir.core -     INFO -        run() - Running task 'show_command' with args {} on 4 hosts
+2023-04-12 14:24:43,983 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/user/.local/lib/python3.6/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/user/.local/lib/python3.6/site-packages/nornir_scrapli/tasks/core/send_command.py", line 36, in send_command
+    scrapli_conn = task.host.get_connection("scrapli", task.nornir.config)
+  File "/home/user/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 502, in get_connection
+    extras=conn.extras,
+  File "/home/user/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 553, in open_connection
+    configuration=configuration,
+  File "/home/user/.local/lib/python3.6/site-packages/nornir_scrapli/connection.py", line 98, in open
+    connection.open()
+  File "/home/user/.local/lib/python3.6/site-packages/scrapli/driver/base/sync_driver.py", line 88, in open
+    auth_private_key_passphrase=self.auth_private_key_passphrase,
+  File "/home/user/.local/lib/python3.6/site-packages/scrapli/decorators.py", line 279, in decorate
+    kwargs=kwargs,
+  File "/home/user/.local/lib/python3.6/site-packages/scrapli/decorators.py", line 337, in _multiprocessing_timeout
+    return future.result()
+  File "/usr/lib/python3.6/concurrent/futures/_base.py", line 425, in result
+    return self.__get_result()
+  File "/usr/lib/python3.6/concurrent/futures/_base.py", line 384, in __get_result
+    raise self._exception
+  File "/usr/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/user/.local/lib/python3.6/site-packages/scrapli/channel/sync_channel.py", line 300, in channel_authenticate_ssh
+    raise ScrapliAuthenticationFailed(msg)
+scrapli.exceptions.ScrapliAuthenticationFailed: password prompt seen more than once, assuming auth failed
+
+2023-04-12 14:24:43,989 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'show_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/user/.local/lib/python3.6/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "script.py", line 18, in show_command
+    show_result = task.run(task=send_command, command="show ip interface brief")
+  File "/home/user/.local/lib/python3.6/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: send_command (failed)
+
+
+2023-04-12 14:24:44,187 - nornir.core.task -    ERROR -      start() - Host 'R3': task 'send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/user/.local/lib/python3.6/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/user/.local/lib/python3.6/site-packages/nornir_scrapli/tasks/core/send_command.py", line 36, in send_command
+    scrapli_conn = task.host.get_connection("scrapli", task.nornir.config)
+  File "/home/user/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 502, in get_connection
+    extras=conn.extras,
+  File "/home/user/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 553, in open_connection
+    configuration=configuration,
+  File "/home/user/.local/lib/python3.6/site-packages/nornir_scrapli/connection.py", line 98, in open
+    connection.open()
+  File "/home/user/.local/lib/python3.6/site-packages/scrapli/driver/base/sync_driver.py", line 88, in open
+    auth_private_key_passphrase=self.auth_private_key_passphrase,
+  File "/home/user/.local/lib/python3.6/site-packages/scrapli/decorators.py", line 279, in decorate
+    kwargs=kwargs,
+  File "/home/user/.local/lib/python3.6/site-packages/scrapli/decorators.py", line 337, in _multiprocessing_timeout
+    return future.result()
+  File "/usr/lib/python3.6/concurrent/futures/_base.py", line 425, in result
+    return self.__get_result()
+  File "/usr/lib/python3.6/concurrent/futures/_base.py", line 384, in __get_result
+    raise self._exception
+  File "/usr/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/user/.local/lib/python3.6/site-packages/scrapli/channel/sync_channel.py", line 300, in channel_authenticate_ssh
+    raise ScrapliAuthenticationFailed(msg)
+scrapli.exceptions.ScrapliAuthenticationFailed: password prompt seen more than once, assuming auth failed
+
+2023-04-12 14:24:44,188 - nornir.core.task -    ERROR -      start() - Host 'R3': task 'show_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/user/.local/lib/python3.6/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "script.py", line 18, in show_command
+    show_result = task.run(task=send_command, command="show ip interface brief")
+  File "/home/user/.local/lib/python3.6/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: send_command (failed)
+
+
+2023-04-12 14:24:44,209 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/user/.local/lib/python3.6/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/user/.local/lib/python3.6/site-packages/nornir_scrapli/tasks/core/send_command.py", line 36, in send_command
+    scrapli_conn = task.host.get_connection("scrapli", task.nornir.config)
+  File "/home/user/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 502, in get_connection
+    extras=conn.extras,
+  File "/home/user/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 553, in open_connection
+    configuration=configuration,
+  File "/home/user/.local/lib/python3.6/site-packages/nornir_scrapli/connection.py", line 98, in open
+    connection.open()
+  File "/home/user/.local/lib/python3.6/site-packages/scrapli/driver/base/sync_driver.py", line 88, in open
+    auth_private_key_passphrase=self.auth_private_key_passphrase,
+  File "/home/user/.local/lib/python3.6/site-packages/scrapli/decorators.py", line 279, in decorate
+    kwargs=kwargs,
+  File "/home/user/.local/lib/python3.6/site-packages/scrapli/decorators.py", line 337, in _multiprocessing_timeout
+    return future.result()
+  File "/usr/lib/python3.6/concurrent/futures/_base.py", line 425, in result
+    return self.__get_result()
+  File "/usr/lib/python3.6/concurrent/futures/_base.py", line 384, in __get_result
+    raise self._exception
+  File "/usr/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/user/.local/lib/python3.6/site-packages/scrapli/channel/sync_channel.py", line 300, in channel_authenticate_ssh
+    raise ScrapliAuthenticationFailed(msg)
+scrapli.exceptions.ScrapliAuthenticationFailed: password prompt seen more than once, assuming auth failed
+
+2023-04-12 14:24:44,210 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'show_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/user/.local/lib/python3.6/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "script.py", line 18, in show_command
+    show_result = task.run(task=send_command, command="show ip interface brief")
+  File "/home/user/.local/lib/python3.6/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: send_command (failed)
+
+
+2023-04-12 14:24:44,243 - nornir.core.task -    ERROR -      start() - Host 'R4': task 'send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/user/.local/lib/python3.6/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/user/.local/lib/python3.6/site-packages/nornir_scrapli/tasks/core/send_command.py", line 36, in send_command
+    scrapli_conn = task.host.get_connection("scrapli", task.nornir.config)
+  File "/home/user/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 502, in get_connection
+    extras=conn.extras,
+  File "/home/user/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 553, in open_connection
+    configuration=configuration,
+  File "/home/user/.local/lib/python3.6/site-packages/nornir_scrapli/connection.py", line 98, in open
+    connection.open()
+  File "/home/user/.local/lib/python3.6/site-packages/scrapli/driver/base/sync_driver.py", line 88, in open
+    auth_private_key_passphrase=self.auth_private_key_passphrase,
+  File "/home/user/.local/lib/python3.6/site-packages/scrapli/decorators.py", line 279, in decorate
+    kwargs=kwargs,
+  File "/home/user/.local/lib/python3.6/site-packages/scrapli/decorators.py", line 337, in _multiprocessing_timeout
+    return future.result()
+  File "/usr/lib/python3.6/concurrent/futures/_base.py", line 425, in result
+    return self.__get_result()
+  File "/usr/lib/python3.6/concurrent/futures/_base.py", line 384, in __get_result
+    raise self._exception
+  File "/usr/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/user/.local/lib/python3.6/site-packages/scrapli/channel/sync_channel.py", line 300, in channel_authenticate_ssh
+    raise ScrapliAuthenticationFailed(msg)
+scrapli.exceptions.ScrapliAuthenticationFailed: password prompt seen more than once, assuming auth failed
+
+2023-04-12 14:24:44,244 - nornir.core.task -    ERROR -      start() - Host 'R4': task 'show_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/user/.local/lib/python3.6/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "script.py", line 18, in show_command
+    show_result = task.run(task=send_command, command="show ip interface brief")
+  File "/home/user/.local/lib/python3.6/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: send_command (failed)
+
+
+2023-04-12 14:24:47,794 -  nornir.core -     INFO -        run() - Running task 'show_command' with args {} on 4 hosts
+2023-04-12 14:24:53,377 - nornir.core.task -    ERROR -      start() - Host 'R3': task 'send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/user/.local/lib/python3.6/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/user/.local/lib/python3.6/site-packages/nornir_scrapli/tasks/core/send_command.py", line 36, in send_command
+    scrapli_conn = task.host.get_connection("scrapli", task.nornir.config)
+  File "/home/user/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 502, in get_connection
+    extras=conn.extras,
+  File "/home/user/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 553, in open_connection
+    configuration=configuration,
+  File "/home/user/.local/lib/python3.6/site-packages/nornir_scrapli/connection.py", line 98, in open
+    connection.open()
+  File "/home/user/.local/lib/python3.6/site-packages/scrapli/driver/base/sync_driver.py", line 88, in open
+    auth_private_key_passphrase=self.auth_private_key_passphrase,
+  File "/home/user/.local/lib/python3.6/site-packages/scrapli/decorators.py", line 279, in decorate
+    kwargs=kwargs,
+  File "/home/user/.local/lib/python3.6/site-packages/scrapli/decorators.py", line 337, in _multiprocessing_timeout
+    return future.result()
+  File "/usr/lib/python3.6/concurrent/futures/_base.py", line 425, in result
+    return self.__get_result()
+  File "/usr/lib/python3.6/concurrent/futures/_base.py", line 384, in __get_result
+    raise self._exception
+  File "/usr/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/user/.local/lib/python3.6/site-packages/scrapli/channel/sync_channel.py", line 300, in channel_authenticate_ssh
+    raise ScrapliAuthenticationFailed(msg)
+scrapli.exceptions.ScrapliAuthenticationFailed: password prompt seen more than once, assuming auth failed
+
+2023-04-12 14:24:53,378 - nornir.core.task -    ERROR -      start() - Host 'R3': task 'show_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/user/.local/lib/python3.6/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "script.py", line 18, in show_command
+    show_result = task.run(task=send_command, command="show ip interface brief")
+  File "/home/user/.local/lib/python3.6/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: send_command (failed)
+
+
+2023-04-12 14:24:53,488 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/user/.local/lib/python3.6/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/user/.local/lib/python3.6/site-packages/nornir_scrapli/tasks/core/send_command.py", line 36, in send_command
+    scrapli_conn = task.host.get_connection("scrapli", task.nornir.config)
+  File "/home/user/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 502, in get_connection
+    extras=conn.extras,
+  File "/home/user/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 553, in open_connection
+    configuration=configuration,
+  File "/home/user/.local/lib/python3.6/site-packages/nornir_scrapli/connection.py", line 98, in open
+    connection.open()
+  File "/home/user/.local/lib/python3.6/site-packages/scrapli/driver/base/sync_driver.py", line 88, in open
+    auth_private_key_passphrase=self.auth_private_key_passphrase,
+  File "/home/user/.local/lib/python3.6/site-packages/scrapli/decorators.py", line 279, in decorate
+    kwargs=kwargs,
+  File "/home/user/.local/lib/python3.6/site-packages/scrapli/decorators.py", line 337, in _multiprocessing_timeout
+    return future.result()
+  File "/usr/lib/python3.6/concurrent/futures/_base.py", line 425, in result
+    return self.__get_result()
+  File "/usr/lib/python3.6/concurrent/futures/_base.py", line 384, in __get_result
+    raise self._exception
+  File "/usr/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/user/.local/lib/python3.6/site-packages/scrapli/channel/sync_channel.py", line 300, in channel_authenticate_ssh
+    raise ScrapliAuthenticationFailed(msg)
+scrapli.exceptions.ScrapliAuthenticationFailed: password prompt seen more than once, assuming auth failed
+
+2023-04-12 14:24:53,489 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'show_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/user/.local/lib/python3.6/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "script.py", line 18, in show_command
+    show_result = task.run(task=send_command, command="show ip interface brief")
+  File "/home/user/.local/lib/python3.6/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: send_command (failed)
+
+
+2023-04-12 14:24:53,491 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/user/.local/lib/python3.6/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/user/.local/lib/python3.6/site-packages/nornir_scrapli/tasks/core/send_command.py", line 36, in send_command
+    scrapli_conn = task.host.get_connection("scrapli", task.nornir.config)
+  File "/home/user/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 502, in get_connection
+    extras=conn.extras,
+  File "/home/user/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 553, in open_connection
+    configuration=configuration,
+  File "/home/user/.local/lib/python3.6/site-packages/nornir_scrapli/connection.py", line 98, in open
+    connection.open()
+  File "/home/user/.local/lib/python3.6/site-packages/scrapli/driver/base/sync_driver.py", line 88, in open
+    auth_private_key_passphrase=self.auth_private_key_passphrase,
+  File "/home/user/.local/lib/python3.6/site-packages/scrapli/decorators.py", line 279, in decorate
+    kwargs=kwargs,
+  File "/home/user/.local/lib/python3.6/site-packages/scrapli/decorators.py", line 337, in _multiprocessing_timeout
+    return future.result()
+  File "/usr/lib/python3.6/concurrent/futures/_base.py", line 425, in result
+    return self.__get_result()
+  File "/usr/lib/python3.6/concurrent/futures/_base.py", line 384, in __get_result
+    raise self._exception
+  File "/usr/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/user/.local/lib/python3.6/site-packages/scrapli/channel/sync_channel.py", line 300, in channel_authenticate_ssh
+    raise ScrapliAuthenticationFailed(msg)
+scrapli.exceptions.ScrapliAuthenticationFailed: password prompt seen more than once, assuming auth failed
+
+2023-04-12 14:24:53,492 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'show_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/user/.local/lib/python3.6/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "script.py", line 18, in show_command
+    show_result = task.run(task=send_command, command="show ip interface brief")
+  File "/home/user/.local/lib/python3.6/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: send_command (failed)
+
+
+2023-04-12 14:24:53,734 - nornir.core.task -    ERROR -      start() - Host 'R4': task 'send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/user/.local/lib/python3.6/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/user/.local/lib/python3.6/site-packages/nornir_scrapli/tasks/core/send_command.py", line 36, in send_command
+    scrapli_conn = task.host.get_connection("scrapli", task.nornir.config)
+  File "/home/user/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 502, in get_connection
+    extras=conn.extras,
+  File "/home/user/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 553, in open_connection
+    configuration=configuration,
+  File "/home/user/.local/lib/python3.6/site-packages/nornir_scrapli/connection.py", line 98, in open
+    connection.open()
+  File "/home/user/.local/lib/python3.6/site-packages/scrapli/driver/base/sync_driver.py", line 88, in open
+    auth_private_key_passphrase=self.auth_private_key_passphrase,
+  File "/home/user/.local/lib/python3.6/site-packages/scrapli/decorators.py", line 279, in decorate
+    kwargs=kwargs,
+  File "/home/user/.local/lib/python3.6/site-packages/scrapli/decorators.py", line 337, in _multiprocessing_timeout
+    return future.result()
+  File "/usr/lib/python3.6/concurrent/futures/_base.py", line 425, in result
+    return self.__get_result()
+  File "/usr/lib/python3.6/concurrent/futures/_base.py", line 384, in __get_result
+    raise self._exception
+  File "/usr/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/user/.local/lib/python3.6/site-packages/scrapli/channel/sync_channel.py", line 300, in channel_authenticate_ssh
+    raise ScrapliAuthenticationFailed(msg)
+scrapli.exceptions.ScrapliAuthenticationFailed: password prompt seen more than once, assuming auth failed
+
+2023-04-12 14:24:53,735 - nornir.core.task -    ERROR -      start() - Host 'R4': task 'show_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/user/.local/lib/python3.6/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "script.py", line 18, in show_command
+    show_result = task.run(task=send_command, command="show ip interface brief")
+  File "/home/user/.local/lib/python3.6/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: send_command (failed)
+
+
+2023-04-12 14:24:59,877 -  nornir.core -     INFO -        run() - Running task 'show_command' with args {} on 4 hosts

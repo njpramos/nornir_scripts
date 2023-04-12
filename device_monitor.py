@@ -4,6 +4,7 @@ import pprint
 from nornir import InitNornir
 from nornir_scrapli.tasks import send_command
 from nornir_utils.plugins.functions import print_result
+from rich import print as rprint
 
 
 nr = InitNornir(config_file="inventory/config.yaml")
@@ -26,6 +27,6 @@ def show_command(task):
         link_status = interfaces[interface]['protocol']
         
         if link_status == 'up':
-            print(f"{interface} is UP")
+            rprint(f"{interface} is [green]UP[/green]")
 
 results = nr.run(task=show_command)

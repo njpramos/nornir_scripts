@@ -31,7 +31,7 @@ def add_description(task):
         # configure the description for each router interface
 
         description = f"*** {local_int} is connected to {port_id} of {device_id} ***"
-        config_commands = [f"interface {local_int}", f"description {description}"]
+        config_commands = [f"interface {local_int}", f"description {description}", "do wr"]
         task.run(task=send_configs, configs=config_commands)
 
 results = nr.run(task=add_description)

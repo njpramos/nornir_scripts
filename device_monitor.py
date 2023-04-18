@@ -16,17 +16,20 @@ nr.inventory.defaults.password = password
 def show_command(task):
 
     show_result = task.run(task=send_command, command="show ip interface brief")
-    task.host["facts"] = show_result.scrapli_response.genie_parse_output()
+    structured_result = show_result.scrapli_response.textfsm_parse_output()
+
+    for interface in structured_result:
+
+        print(f"{interface['intf']} : {interface['status']}")
+
+    # interfaces = task.host["facts"]["interface"]
 
 
-    interfaces = task.host["facts"]["interface"]
+    # for interface in interfaces:
 
-
-    for interface in interfaces:
-
-        link_status = interfaces[interface]['protocol']
+    #     link_status = interfaces[interface]['protocol']
         
-        if link_status == 'up':
-            rprint(f"{interface} is [green]UP[/green]")
+    #     if link_status == 'up':
+    #         rprint(f"{interface} is [green]UP[/green]")
 
 results = nr.run(task=show_command)

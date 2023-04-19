@@ -1,0 +1,5 @@
+router ospf {{ host['ospf']['process-id'] }}
+router-id {{ host['ospf']['router-id'] }}
+{% for n in host['ospf']['networks'] %}
+network {{ n['ip'] }} {{ n['wildcard'] }} area {{ n['area'] }}
+{% endfor %}

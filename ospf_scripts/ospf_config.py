@@ -3,7 +3,7 @@ from nornir_scrapli.tasks import send_configs
 from nornir_utils.plugins.functions import print_result
 from nornir_jinja2.plugins.tasks import template_file
 
-nr = InitNornir(config_file="ospf_inventory/config.yaml")
+nr = InitNornir(config_file="inventory/config.yaml")
 
 def send_ospf_configs(task):
     template = task.run(task=template_file, template="ospf.j2", path="templates")

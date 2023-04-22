@@ -1,0 +1,39 @@
+---
+
+R1:
+    hostname: "192.168.10.11"
+    groups:
+        - cisco_group
+R2:
+    hostname: "192.168.10.12"
+    groups:
+        - cisco_group
+
+R3:
+    hostname: "192.168.10.13"
+    groups:
+        - cisco_group
+
+R4:
+    hostname: "192.168.10.14"
+    groups:
+        - cisco_group
+
+R5:
+    hostname: "192.168.10.15"
+    groups:
+        - cisco_group
+R6:
+    hostname: "192.168.10.16"
+    groups:
+        - cisco_group
+
+R7:
+    hostname: "192.168.10.17"
+    groups:
+        - cisco_group
+
+R8:
+    hostname: "192.168.10.18"
+    groups:
+        - cisco_group

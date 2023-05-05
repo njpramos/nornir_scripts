@@ -3,6 +3,6 @@ Capability Codes: R - Router, T - Trans Bridge, B - Source Route Bridge
                   D - Remote, C - CVTA, M - Two-port Mac Relay
 
 Device ID        Local Intrfce     Holdtme    Capability  Platform  Port ID
-Switch           Gig 0/0           129             R S I            Gig 1/0
+Switch           Gig 0/0           159             R S I            Gig 0/1
 
 Total cdp entries displayed : 1

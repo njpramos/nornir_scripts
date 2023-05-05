@@ -1,16 +1,14 @@
 Building configuration...
 
 
-Current configuration : 3325 bytes
-!
-! Last configuration change at 06:06:27 UTC Fri May 5 2023 by admin
+Current configuration : 3166 bytes
 !
 version 15.7
 service timestamps debug datetime msec
 service timestamps log datetime msec
 no service password-encryption
 !
-hostname R2
+hostname R1
 !
 boot-start-marker
 boot-end-marker
@@ -50,7 +48,7 @@ multilink bundle-name authenticated
 !
 !
 !
-username admin privilege 15 secret 5 $1$xDIn$FSW8odPnrQa9neHnTIfcT1
+username admin privilege 15 secret 5 $1$2McB$REk7QDjka0KpvWFLLC1TO1
 !
 redundancy
 !
@@ -70,7 +68,7 @@ redundancy
 !
 interface GigabitEthernet0/0
  vrf forwarding MGMT
- ip address 192.168.10.12 255.255.255.0
+ ip address 192.168.10.11 255.255.255.0
  duplex auto
  speed auto
  media-type rj45
@@ -96,16 +94,12 @@ interface GigabitEthernet0/3
  speed auto
  media-type rj45
 !
-router ospf 1
- router-id 2.2.2.2
- network 10.1.2.0 0.0.0.255 area 0
- network 10.1.22.0 0.0.0.255 area 1
-!
 ip forward-protocol nd
 !
 !
 no ip http server
 no ip http secure-server
+ip route 0.0.0.0 0.0.0.0 192.168.10.1
 ip route vrf MGMT 0.0.0.0 0.0.0.0 192.168.10.1
 ip ssh version 2
 !
@@ -144,7 +138,6 @@ banner login ^C
 **************************************************************************^C
 !
 line con 0
- logging synchronous
 line aux 0
 line vty 0 4
  login local

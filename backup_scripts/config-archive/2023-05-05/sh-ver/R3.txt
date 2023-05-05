@@ -6,7 +6,7 @@ Compiled Wed 01-Aug-18 16:45 by prod_rel_team
 
 ROM: Bootstrap program is IOSv
 
-R2 uptime is 52 minutes
+R3 uptime is 5 minutes
 System returned to ROM by reload
 System image file is "flash0:/vios-adventerprisek9-m"
 Last reload reason: Unknown reason
@@ -29,7 +29,7 @@ If you require further assistance please contact us by sending email to
 export@cisco.com.
 
 Cisco IOSv (revision 1.0) with  with 984313K/62464K bytes of memory.
-Processor board ID 9H90NMBS1X350N7ODQ84Y
+Processor board ID 9LWQAQMJ01VSARW2WU5LR
 4 Gigabit Ethernet interfaces
 DRAM configuration is 72 bits wide with parity disabled.
 256K bytes of non-volatile configuration memory.

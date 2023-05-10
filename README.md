@@ -6,4 +6,7 @@ Packages installed:
 - nornir_scrapli
 - nornir_utils
 - scrapli[genie]
-- rich
+- pyats
+- ipdb
+- ipaddress
+

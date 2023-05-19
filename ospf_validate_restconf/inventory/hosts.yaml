@@ -1,0 +1,11 @@
+---
+
+R1:
+    hostname: "192.168.10.20"
+    groups:
+        - cisco_group
+
+R2:
+    hostname: "192.168.10.21"
+    groups:
+        - cisco_group

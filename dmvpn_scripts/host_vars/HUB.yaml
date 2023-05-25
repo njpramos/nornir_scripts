@@ -1,0 +1,15 @@
+---
+
+vrf:
+    peer_ip: 200.0.0.2
+
+dmvpn:
+    type: hub
+    source:
+        int: gig0/1
+        ip: 200.0.0.1 255.255.255.252
+    hub:
+        tunnel_ip: 172.16.1.1
+
+bgp:
+    peer_group: SPOKES

@@ -1,0 +1,4 @@
+vrf definition WAN
+address-family ipv4
+exit
+ip route vrf WAN 0.0.0.0 0.0.0.0 {{ host.facts.vrf.peer_ip }}

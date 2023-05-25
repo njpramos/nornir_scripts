@@ -1,0 +1,21 @@
+---
+
+HUB:
+    hostname: "192.168.10.41"
+    groups:
+        - cisco_group
+
+SPOKE1:
+    hostname: "192.168.10.42"
+    groups:
+        - cisco_group
+
+SPOKE2:
+    hostname: "192.168.10.43"
+    groups:
+        - cisco_group
+
+SPOKE3:
+    hostname: "192.168.10.44"
+    groups:
+        - cisco_group

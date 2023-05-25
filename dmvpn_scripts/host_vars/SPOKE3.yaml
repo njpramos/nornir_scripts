@@ -1,0 +1,13 @@
+---
+
+vrf:
+    peer_ip: 203.0.0.2
+
+dmvpn:
+    tunnel_ip: 172.16.1.4 255.255.255.0
+    type: spoke
+    source:
+        int: gig0/1
+        ip: 203.0.0.1 255.255.255.252
+    hub:
+        tunnel_ip: 172.16.1.1

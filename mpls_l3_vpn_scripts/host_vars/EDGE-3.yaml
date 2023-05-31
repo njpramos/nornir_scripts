@@ -1,0 +1,38 @@
+---
+
+vrfs:
+  - name: BLUE 
+    rd: "25:3"
+    targets:
+      - direction: export
+        target_tag: "25:3"
+      - direction: import
+        target_tag: "25:3"
+
+  - name: ORANGE 
+    rd: "25:2"
+    targets:
+      - direction: export
+        target_tag: "25:2"
+      - direction: import
+        target_tag: "25:2"
+
+  - name: MGMT
+  
+BGP:
+    ASN: "25"
+    neighbors:
+      - 2.2.2.2
+      - 1.1.1.1
+      - 4.4.4.4
+    vrfs:
+      - name: BLUE
+        redistribute_process: 2
+        ospf_rid: 172.1.3.2
+      - name: ORANGE
+        redistribute_process: 3
+        ospf_rid: 172.1.3.3
+
+OSPF:
+    process: 1
+    ospf_rid: 3.3.4.4

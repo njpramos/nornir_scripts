@@ -1,0 +1,21 @@
+---
+
+EDGE-1:
+    hostname: "192.168.10.15"
+    groups:
+        - cisco_group
+
+EDGE-2:
+    hostname: "192.168.10.16"
+    groups:
+        - cisco_group
+
+EDGE-3:
+    hostname: "192.168.10.17"
+    groups:
+        - cisco_group
+
+EDGE-4:
+    hostname: "192.168.10.18"
+    groups:
+        - cisco_group
